@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
 
     List<PageModel> pageModels = new ArrayList<>();{
-//        pageModels.add(new PageModel(R.layout.sample_color, R.string.title_draw_color, R.layout.practice_color));
+        pageModels.add(new PageModel(R.layout.sample_color, R.string.title_draw_color, R.layout.practice_color));
 
     }
 

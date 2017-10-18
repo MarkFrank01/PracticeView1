@@ -14,16 +14,16 @@ import android.view.ViewStub;
  */
 
 public class PagerFragment extends Fragment {
-    @LayoutRes
+        @LayoutRes
     int sampleLayoutRes;
     @LayoutRes
-    int praticeLayoutRes;
+    int practiceLayoutRes;
 
-    public static PagerFragment newInstance(@LayoutRes int sampleLayoutRes, @LayoutRes int praticeLayoutRes) {
+    public static PagerFragment newInstance(@LayoutRes int sampleLayoutRes, @LayoutRes int practiceLayoutRes) {
         PagerFragment pagerFragment = new PagerFragment();
         Bundle args = new Bundle();
         args.putInt("sampleLayoutRes", sampleLayoutRes);
-        args.putInt("praticeLayoutRes", praticeLayoutRes);
+        args.putInt("practiceLayoutRes", practiceLayoutRes);
         pagerFragment.setArguments(args);
         return pagerFragment;
     }
@@ -38,7 +38,7 @@ public class PagerFragment extends Fragment {
         sampleStub.inflate();
 
         ViewStub practiceSub = (ViewStub) view.findViewById(R.id.practiceStub);
-        practiceSub.setLayoutResource(praticeLayoutRes);
+        practiceSub.setLayoutResource(practiceLayoutRes);
         practiceSub.inflate();
 
         return view;
@@ -48,10 +48,11 @@ public class PagerFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Bundle args = new Bundle();
+        Bundle args = getArguments();
         if (args != null){
             sampleLayoutRes = args.getInt("sampleLayoutRes");
-            praticeLayoutRes = args.getInt("praticeLayoutRes");
+            practiceLayoutRes = args.getInt("practiceLayoutRes");
         }
     }
+
 }
