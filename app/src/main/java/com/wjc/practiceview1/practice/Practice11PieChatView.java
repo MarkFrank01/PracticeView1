@@ -76,7 +76,6 @@ public class Practice11PieChatView extends TextView {
     }
 
 
-
     public Practice11PieChatView(Context context) {
         this(context, null);
     }
@@ -128,6 +127,7 @@ public class Practice11PieChatView extends TextView {
             }
         }
         a.recycle();
+
         //初始化paint
 
         mPaint = new Paint();
@@ -146,23 +146,29 @@ public class Practice11PieChatView extends TextView {
         mPaint.setColor(mFirstPointColor);
         mStokePaint.setColor(mStokeColor);
         RectF oval = new RectF(mRaduis, mRaduis, mRaduis * 3, mRaduis * 3);
+
         //绘制实心圆弧
         canvas.drawArc(oval, 135 - (mFirstPoint / 100 * 360) / 2, (mFirstPoint / 100 * 360), true, mPaint);
+
         //绘制与底色相同的圆环
         canvas.drawArc(oval, 135 - (mFirstPoint / 100 * 360) / 2, (mFirstPoint / 100 * 360), true, mStokePaint);
         mPaint.setColor(mSecondPointColor);
+
         //绘制实心圆弧
         canvas.drawArc(oval, 315 - (360 - mFirstPoint / 100 * 360) / 2, (360 - mFirstPoint / 100 * 360), true, mPaint);
+
         //绘制与底色相同的圆环
         canvas.drawArc(oval, 315 - (360 - mFirstPoint / 100 * 360) / 2, (360 - mFirstPoint / 100 * 360), true, mStokePaint);
         mTextPaint.setColor(mTextColor);
         mTextPaint.setStyle(Paint.Style.FILL);
         mTextPaint.setStrokeWidth(1);
+
         //绘制折线
         canvas.drawLine((float) (1 - Math.sqrt(2) / 2) * mRaduis + mRaduis, (float) (1 + Math.sqrt(2) / 2) * mRaduis + mRaduis, mRaduis, 3 * mRaduis, mTextPaint);
         canvas.drawLine(mRaduis, 2 * mRaduis + mRaduis, 0, 3 * mRaduis, mTextPaint);
         canvas.drawLine((float) (2 + Math.sqrt(2) / 2) * mRaduis, (float) (2 * mRaduis - Math.sqrt(2) / 2 * mRaduis), 3 * mRaduis, mRaduis, mTextPaint);
         canvas.drawLine(3 * mRaduis, mRaduis, 4 * mRaduis, mRaduis, mTextPaint);
+
         //绘制文字
         mTextPaint.setColor(mTextColor);
         mTextPaint.setTextSize(mPointTextSize);
